@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Features\Mediator\Commands\" />
+    <Folder Include="Features\Mediator\Handlers\" />
+    <Folder Include="Features\Mediator\Queries\" />
+    <Folder Include="Features\Mediator\Results\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MultiShop.Order.Domain\MultiShop.Order.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
