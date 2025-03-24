@@ -12,12 +12,12 @@ namespace MultiShop.Order.Application.Features.CQRS.Handlers.AddressHandlers
 {
     public class GetAddressQueryHandler
     {
-        private readonly IWriteRepository<Address> _readRepository;
-        public GetAddressQueryHandler(IWriteRepository<Address> readRepository)
+        private readonly IReadRepository<Address> _readRepository;
+        public GetAddressQueryHandler(IReadRepository<Address> readRepository)
         {
             _readRepository = readRepository;
         }
-        public async Task<List<GetAddressQueryResult>> Handle(GetAddressQuery query)
+        public async Task<List<GetAddressQueryResult>> Handle()
         {
             var values = await _readRepository.GetAllAsync();
             return values.Select(x => new GetAddressQueryResult

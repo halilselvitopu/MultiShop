@@ -11,10 +11,10 @@ namespace MultiShop.Order.Application.Features.CQRS.Handlers.AddressHandlers
 {
     public class RemoveAddressCommandHandler
     {
-        private readonly IWriteRepository<Address> _readRepository;
+        private readonly IReadRepository<Address> _readRepository;
         private readonly IWriteRepository<Address> _writeRepository;
 
-        public RemoveAddressCommandHandler(IWriteRepository<Address> writeRepository, IWriteRepository<Address> readRepository)
+        public RemoveAddressCommandHandler(IWriteRepository<Address> writeRepository, IReadRepository<Address> readRepository)
         {
             _writeRepository = writeRepository;
             _readRepository = readRepository;
@@ -23,7 +23,7 @@ namespace MultiShop.Order.Application.Features.CQRS.Handlers.AddressHandlers
         public async Task Handle(RemoveAddressCommand command)
         {
             var value = await _readRepository.GetByIdAsync(command.Id);
-            await _writeRepository.DeleteAsync(value);
+            await _writeRepository.RemoveAsync(value);
         }
     }
 }
