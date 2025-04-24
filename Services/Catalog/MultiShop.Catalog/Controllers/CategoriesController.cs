@@ -2,12 +2,11 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MultiShop.Catalog.Dtos.CategoryDtos;
-using MultiShop.Catalog.Dtos.CategoryDtos;
 using MultiShop.Catalog.Services.CategoryServices;
 
 namespace MultiShop.Catalog.Controllers
 {
-    [Authorize]
+    [AllowAnonymous]
     [Route("api/[controller]")]
     [ApiController]
     public class CategoriesController : ControllerBase
