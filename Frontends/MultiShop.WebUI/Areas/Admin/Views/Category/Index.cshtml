@@ -29,8 +29,8 @@
                                     <th scope="row">@item.Id</th>
                                     <td>@item.Name</td>
                                     <td><a href="#" class="btn btn-warning">Kategoriye Ait Ürünler</a></td>
-                                    <td><a href="#" class="btn btn-danger">Sil</a></td>
-                                    <td><a href="#" class="btn btn-success">Güncelle</a></td>
+                                    <td><a href="/Admin/Category/DeleteCategory/@item.Id" class="btn btn-danger">Sil</a></td>
+                                    <td><a href="/Admin/Category/UpdateCategory/@item.Id" class="btn btn-success">Güncelle</a></td>
                                 </tr>
                             }                           
                         </tbody>
