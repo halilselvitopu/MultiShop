@@ -7,6 +7,7 @@ using MultiShop.Catalog.Services.CategoryServices;
 using MultiShop.Catalog.Services.ProductDetailServices;
 using MultiShop.Catalog.Services.ProductImageServices;
 using MultiShop.Catalog.Services.ProductServices;
+using MultiShop.Catalog.Services.ShowcaseServices;
 using MultiShop.Catalog.Settings;
 using System.Reflection;
 
@@ -25,6 +26,7 @@ builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IProductDetailService, ProductDetailService>();
 builder.Services.AddScoped<IProductImageService, ProductImageService>();
+builder.Services.AddScoped<IShowcaseService, ShowcaseService>();
 
 // AutoMapper
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
@@ -78,6 +80,13 @@ builder.Services.AddSingleton<IMongoCollection<ProductImage>>(sp =>
     var database = sp.GetRequiredService<IMongoDatabase>();
     var settings = sp.GetRequiredService<IDatabaseSettings>();
     return database.GetCollection<ProductImage>(settings.ProductImageCollectionName);
+});
+
+builder.Services.AddSingleton<IMongoCollection<Showcase>>(sp =>
+{
+    var database = sp.GetRequiredService<IMongoDatabase>();
+    var settings = sp.GetRequiredService<IDatabaseSettings>();
+    return database.GetCollection<Showcase>(settings.ShowcaseCollectionName);
 });
 
 // Add API Controllers
