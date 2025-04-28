@@ -1,70 +1,35 @@
-﻿<div class="container-fluid mb-3">
+﻿@model List<ResultShowcaseDto>
+
+<div class="container-fluid mb-3">
     <div class="row px-xl-5">
         <div class="col-lg-8">
             <div id="header-carousel" class="carousel slide carousel-fade mb-30 mb-lg-0" data-ride="carousel">
                 <ol class="carousel-indicators">
-                    <li data-target="#header-carousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#header-carousel" data-slide-to="1"></li>
-                    <li data-target="#header-carousel" data-slide-to="2"></li>
-                    <li data-target="#header-carousel" data-slide-to="3"></li>
-                    <li data-target="#header-carousel" data-slide-to="4"></li>
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        <li data-target="#header-carousel" data-slide-to="@i" class="@(i == 0 ? "active" : "")"></li>
+                    }
                 </ol>
+
                 <div class="carousel-inner">
-                    <div class="carousel-item position-relative active" style="height: 430px;">
-                        <img class="position-absolute w-100 h-100" src="~/images/trendyclothes.jpg" style="object-fit: cover;">
-                        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                            <div class="p-3" style="max-width: 700px;">
-                                <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Trend Kıyafetler</h1>
-                                <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Tarzınızı ortaya çıkaracak ve sizi en iyi biçimde yansıtacak trendler.</p>
-                                <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Hemen Sipariş Ver</a>
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        var item = Model[i];
+                        <div class="carousel-item position-relative @(i == 0 ? "active" : "")" style="height: 430px;">
+                            <img class="position-absolute w-100 h-100" src="@item.ImageUrl" style="object-fit: cover;">
+                            <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                                <div class="p-3" style="max-width: 700px;">
+                                    <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">@item.Title</h1>
+                                    <p class="mx-md-5 px-5 animate__animated animate__bounceIn">@item.Description</p>
+                                    <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Alışverişe Başlayın</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="carousel-item position-relative" style="height: 430px;">
-                        <img class="position-absolute w-100 h-100" src="~/images/bestclothes.jpg" style="object-fit: cover;">
-                        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                            <div class="p-3" style="max-width: 700px;">
-                                <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">En Güzel Elbiseler</h1>
-                                <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Zarafetin ve şıklığın buluştuğu en güzel elbiselerle her ortamda göz kamaştırın.</p>
-                                <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Hemen Sipariş Ver</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item position-relative" style="height: 430px;">
-                        <img class="position-absolute w-100 h-100" src="~/images/suits.png" style="object-fit: cover;">
-                        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                            <div class="p-3" style="max-width: 700px;">
-                                <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Takım Elbiseler</h1>
-                                <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Özel günler ve profesyonel ortamlar için tasarlanmış şık ve modern takım elbiseler sizi bekliyor.</p>
-                                <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Hemen Sipariş Ver</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item position-relative" style="height: 430px;">
-                        <img class="position-absolute w-100 h-100" src="~/images/shoesandshirts.jpg" style="object-fit: cover;">
-                        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                            <div class="p-3" style="max-width: 700px;">
-                                <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Ayakkabılar ve Gömlekler</h1>
-                                <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Kombinlerinizi tamamlayacak şık gömlekler ve stil sahibi ayakkabılarla tarzınızı güçlendirin.</p>
-                                <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Hemen Sipariş Ver</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item position-relative" style="height: 430px;">
-                        <img class="position-absolute w-100 h-100" src="~/images/pajamas.jpg" style="object-fit: cover;">
-                        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                            <div class="p-3" style="max-width: 700px;">
-                                <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Ev Rahatlığı</h1>
-                                <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Konforu ve şıklığı bir arada sunan pijama koleksiyonumuzla evde geçirdiğiniz her an daha keyifli.</p>
-                                <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Hemen Sipariş Ver</a>
-                            </div>
-                        </div>
-                    </div>
+                    }
                 </div>
+
             </div>
         </div>
-
         @await Component.InvokeAsync("DefaultSpecialOffer")
-        
     </div>
 </div>

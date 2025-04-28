@@ -1,0 +1,29 @@
+﻿@model UpdateShowcaseDto
+@{
+    ViewData["Title"] = "UpdateShowcase";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+<section class="content container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="chart-box">
+                <h4>Vitrin Güncelleme Sayfası</h4>
+                <div class="bs-example" data-example-id="bordered-table">
+
+                    <form method="post">
+                        <input type="text" class="form-control" asp-for="Title" placeholder="Vitrin Başlığı" />
+                        <br />
+                        <input type="text" class="form-control" asp-for="Description" placeholder="Vitrin Açıklaması" />
+                        <br />
+                        <input type="text" class="form-control" asp-for="ImageUrl" placeholder="Vitrin Görsel Linki" />
+                        <br />
+                        <button class="btn btn-primary">Vitrini Güncelle</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
