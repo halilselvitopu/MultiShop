@@ -4,6 +4,7 @@ using MultiShop.Catalog.Dtos.ProductDetailDtos;
 using MultiShop.Catalog.Dtos.ProductDtos;
 using MultiShop.Catalog.Dtos.ProductImageDtos;
 using MultiShop.Catalog.Dtos.ShowcaseDtos;
+using MultiShop.Catalog.Dtos.SpecialOfferDtos;
 using MultiShop.Catalog.Entities;
 
 namespace MultiShop.Catalog.Mappings
@@ -37,6 +38,12 @@ namespace MultiShop.Catalog.Mappings
             CreateMap<Showcase, CreateShowcaseDto>().ReverseMap();
             CreateMap<Showcase, UpdateShowcaseDto>().ReverseMap();
             CreateMap<Showcase, GetShowcaseByIdDto>().ReverseMap();
+
+            CreateMap<SpecialOffer, ResultSpecialOfferDto>().ReverseMap();
+            CreateMap<SpecialOffer, CreateSpecialOfferDto>().ReverseMap();
+            CreateMap<SpecialOffer, UpdateSpecialOfferDto>().ReverseMap();
+            CreateMap<SpecialOffer, GetSpecialOfferByIdDto>().ReverseMap();
+
 
         }
     }

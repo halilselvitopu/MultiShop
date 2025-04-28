@@ -13,9 +13,9 @@ namespace MultiShop.Catalog.Controllers
     {
         private readonly ICategoryService _categoryService;
 
-        public CategoriesController(ICategoryService CategoryService)
+        public CategoriesController(ICategoryService categoryService)
         {
-            _categoryService = CategoryService;
+            _categoryService = categoryService;
         }
 
         [HttpGet]

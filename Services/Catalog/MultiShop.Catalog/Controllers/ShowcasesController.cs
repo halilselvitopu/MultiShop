@@ -13,9 +13,9 @@ namespace MultiShop.Catalog.Controllers
     {
         private readonly IShowcaseService _ShowcaseService;
 
-        public ShowcasesController(IShowcaseService ShowcaseService)
+        public ShowcasesController(IShowcaseService showcaseService)
         {
-            _ShowcaseService = ShowcaseService;
+            _ShowcaseService = showcaseService;
         }
 
         [HttpGet]

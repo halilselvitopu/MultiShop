@@ -11,9 +11,9 @@ namespace MultiShop.Catalog.Controllers
     {
         private readonly IProductImageService _productImageService;
 
-        public ProductImagesController(IProductImageService ProductImageService)
+        public ProductImagesController(IProductImageService productImageService)
         {
-            _productImageService = ProductImageService;
+            _productImageService = productImageService;
         }
 
         [HttpGet]

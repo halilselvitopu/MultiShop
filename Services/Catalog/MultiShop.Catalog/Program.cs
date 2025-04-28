@@ -8,6 +8,7 @@ using MultiShop.Catalog.Services.ProductDetailServices;
 using MultiShop.Catalog.Services.ProductImageServices;
 using MultiShop.Catalog.Services.ProductServices;
 using MultiShop.Catalog.Services.ShowcaseServices;
+using MultiShop.Catalog.Services.SpecialOfferServices;
 using MultiShop.Catalog.Settings;
 using System.Reflection;
 
@@ -27,6 +28,7 @@ builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IProductDetailService, ProductDetailService>();
 builder.Services.AddScoped<IProductImageService, ProductImageService>();
 builder.Services.AddScoped<IShowcaseService, ShowcaseService>();
+builder.Services.AddScoped<ISpecialOfferService, SpecialOfferService>();
 
 // AutoMapper
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
@@ -87,6 +89,13 @@ builder.Services.AddSingleton<IMongoCollection<Showcase>>(sp =>
     var database = sp.GetRequiredService<IMongoDatabase>();
     var settings = sp.GetRequiredService<IDatabaseSettings>();
     return database.GetCollection<Showcase>(settings.ShowcaseCollectionName);
+});
+
+builder.Services.AddSingleton<IMongoCollection<SpecialOffer>>(sp =>
+{
+    var database = sp.GetRequiredService<IMongoDatabase>();
+    var settings = sp.GetRequiredService<IDatabaseSettings>();
+    return database.GetCollection<SpecialOffer>(settings.SpecialOfferCollectionName);
 });
 
 // Add API Controllers
